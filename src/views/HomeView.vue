@@ -3,19 +3,19 @@
         <h1>{{levelData.titre}}</h1>
         <p>{{levelData.description}}</p>
 
-        <div class="v-home-view__question-active" >
+        <div class="v-home-view__questions">
             <div
                 v-for="question of levelData.activeQuestions"
-                class="v-home-view__question-active__question"
+                class="v-home-view__questions__question"
                 @click="linkOnClick($event, question.url)"
                 @contextmenu="linkOnContextMenu($event, question)"
             >{{question.index}} -> {{question.url}}</div>
         </div>
 
-        <div class="v-home-view__question-active" >
+        <div class="v-home-view__questions">
             <div
                 v-for="question of levelData.inactiveQuestions"
-                class="v-home-view__question-active__question"
+                class="v-home-view__questions__question v-home-view__questions__question--inactive"
             >
                 {{question.index}} -> {{question.url}}
             </div>
@@ -45,7 +45,10 @@ function linkOnClick(e: MouseEvent, url: string) {
 
 function linkOnContextMenu(e: MouseEvent, message: IDataTypeQuestionActive) {
     e.preventDefault()
-    console.log('open modale window with message: ', 'positive: ', message.choiceOptimist, 'negative: ', message.choicePessimist)
+    console.log('-----')
+    console.log('open modale window with message: ')
+    console.log('positive: ', message.choiceOptimist)
+    console.log('negative: ', message.choicePessimist)
 }
 
 </script>
@@ -60,5 +63,17 @@ function linkOnContextMenu(e: MouseEvent, message: IDataTypeQuestionActive) {
     height: 100%;
     box-sizing: border-box;
     border: solid 1px var(--app-color-blue);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.v-home-view__questions__question {
+    cursor: pointer;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.v-home-view__questions__question.v-home-view__questions__question--inactive {
+    opacity: .5;
 }
 </style>

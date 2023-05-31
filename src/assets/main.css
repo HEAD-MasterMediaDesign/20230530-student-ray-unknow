@@ -6,6 +6,7 @@
   --app-color-blue: blue;
   --app-color-gray: lightgray;
   --app-color-secondary: #67e6f1;
+  --app-color-red: red;
 }
 
 html, body {
@@ -26,16 +27,15 @@ body {
 }
 
 .red{
-  color: red;
+  color: var(--app-color-red);
 }
 
 .footer-white{
-  color: green;
+  color: white;
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
+  height: 100%;
 }
 
 @font-face {
