@@ -1,6 +1,7 @@
 <template>
     <section class="v-app" >
         <div class="v-app__header-container">
+            <app-utility-interface/>
             <app-navigation/>
         </div>
 
@@ -27,6 +28,7 @@
 import AppNavigation from "@/components/AppNavigation.vue";
 import {useRouter} from "vue-router";
 import AppFooter from "@/components/AppFooter.vue";
+
 </script>
 
 
