@@ -28,6 +28,7 @@
 import AppNavigation from "@/components/AppNavigation.vue";
 import {useRouter} from "vue-router";
 import AppFooter from "@/components/AppFooter.vue";
+import AppUtilityInterface from "@/components/AppUtilityInterface.vue";
 
 </script>
 
@@ -37,6 +38,11 @@ import AppFooter from "@/components/AppFooter.vue";
 
 <style lang="css" scoped >
 .v-app {
+    background: var(--app-color-gray);
+    box-sizing: border-box;
+    padding: 1rem;
+    position: relative;
+    height: 100%;
 }
 
 .v-app__header-container {
@@ -50,10 +56,10 @@ import AppFooter from "@/components/AppFooter.vue";
 .v-app__view-container {
     position: relative;
     width: 100%;
-    padding-top: var(--app-header-height);
+    padding-top: calc( var(--app-header-height) * 2 );
     padding-bottom: var(--app-footer-height);
     box-sizing: border-box;
-    min-height: 100vh;
+    height: 100%;
 }
 
 .v-app__footer-container {

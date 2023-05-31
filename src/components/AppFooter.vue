@@ -31,9 +31,15 @@ defineProps<{
 
 <style lang="css" scoped >
 .v-app-footer {
-    height: var(--app-header-height);
+    height: var(--app-footer-height);
     width: 100%;
+    background: var(--app-color-secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+
 .v-app-footer__line {
     display: flex;
     justify-content: space-between;
