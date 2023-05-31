@@ -6,14 +6,22 @@
 html, body {
   padding: 0;
   margin: 0;
+  font-family: PERFECT_DOS;
 }
 
 html {
   font-size: 15px;
+  color:red;
+  font-family:
+  
 }
-
 
 #app {
   max-width: 1280px;
   margin: 0 auto;
+}
+
+@font-face {
+  font-family: "PERFECT_DOS";
+  src: url(./Font.ttf);
 }

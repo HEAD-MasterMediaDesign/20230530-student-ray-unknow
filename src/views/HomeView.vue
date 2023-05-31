@@ -56,5 +56,9 @@ function linkOnContextMenu(e: MouseEvent, message: IDataTypeQuestionActive) {
 
 <style lang="css" scoped >
 .v-home-view {
+} 
+
+*{
+    color: red;
 }
 </style>
