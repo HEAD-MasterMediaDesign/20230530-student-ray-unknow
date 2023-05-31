@@ -25,11 +25,17 @@ body {
   line-height: 1rem;
 }
 
+.red{
+  color: red;
+}
+
+.footer-white{
+  color: green;
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  position: relative;
-  height: 100%;
 }
 
 @font-face {
