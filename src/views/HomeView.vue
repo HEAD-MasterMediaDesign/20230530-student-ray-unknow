@@ -8,13 +8,17 @@
                 v-for="question of levelData.activeQuestions"
                 class="v-home-view__questions__question"
                 @click="linkOnClick($event, question.url)"
-                @contextmenu="linkOnContextMenu($event, question)"
+                @contextmenu="linkOnContextMenu($event, question.index)"
             >{{question.index}} -> {{question.url}}</div>
         </div>
 
         <div class="v-home-view__questions">
             <div
                 v-for="question of levelData.inactiveQuestions"
+                :class="{
+                    'is-active': levelData.questionResolvedCounter >= levelData.activeQuestions.length,
+                    'is-resolved': question.isResolved
+                }"
                 class="v-home-view__questions__question v-home-view__questions__question--inactive"
             >
                 {{question.index}} -> {{question.url}}
@@ -31,24 +35,26 @@
 // defineProps<{
 // }>()
 
-import {data, IDataTypeLevel, IDataTypeQuestionActive} from "@/data";
+import type {IDataTypeLevel} from "../data";
 import router from "../router";
-import {useRouter} from "vue-router";
+import {useAppStore} from "../stores/counter"
 
-const levelData: IDataTypeLevel = data.levels[router.currentRoute.value.path.substring(1)]
+const levelData: IDataTypeLevel = useAppStore().data.levels[router.currentRoute.value.path.substring(1)]
 
 function linkOnClick(e: MouseEvent, url: string) {
     e.preventDefault()
 
     console.log('open link to: ', url)
+
+    window.open(url, "_blank")
 }
 
-function linkOnContextMenu(e: MouseEvent, message: IDataTypeQuestionActive) {
+function linkOnContextMenu(e: MouseEvent, activeQuestionIndex: number) {
     e.preventDefault()
-    console.log('-----')
-    console.log('open modale window with message: ')
-    console.log('positive: ', message.choiceOptimist)
-    console.log('negative: ', message.choicePessimist)
+
+    useAppStore().modalLevelKey = router.currentRoute.value.path.substring(1)
+    useAppStore().modalActiveQuestionIndex = activeQuestionIndex
+
 }
 
 </script>
@@ -75,5 +81,15 @@ function linkOnContextMenu(e: MouseEvent, message: IDataTypeQuestionActive) {
 
 .v-home-view__questions__question.v-home-view__questions__question--inactive {
     opacity: .5;
+
+    &.is-active {
+        opacity: 1;
+        color: blue;
+    }
+
+    &.is-resolved {
+        color: red;
+        opacity: 1;
+    }
 }
 </style>

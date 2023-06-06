@@ -1,5 +1,23 @@
 <template>
     <section class="v-app" >
+
+        <div
+            class="v-app__modal"
+            v-if="useAppStore().modalLevelKey.length > 0 && useAppStore().modalActiveQuestionIndex > -1"
+        >
+            <div
+                @click.stop="closeModal()"
+                class="v-app__modal__close"
+            >
+
+            </div>
+            <div
+                class="v-app__modal-container"
+            >
+                <app-modal/>
+            </div>
+        </div>
+
         <div class="v-app__header-container">
             <app-utility-interface/>
             <app-navigation/>
@@ -7,7 +25,7 @@
 
         <div class="v-app__view-container">
             <router-view
-                :key="useRouter().currentRoute.value.name"
+                :key="useRouter().currentRoute.value.name || '00'"
             />
         </div>
 
@@ -25,10 +43,17 @@
 // defineProps<{
 // }>()
 
-import AppNavigation from "@/components/AppNavigation.vue";
+import AppNavigation from "./components/AppNavigation.vue";
 import {useRouter} from "vue-router";
-import AppFooter from "@/components/AppFooter.vue";
-import AppUtilityInterface from "@/components/AppUtilityInterface.vue";
+import AppFooter from "./components/AppFooter.vue";
+import AppUtilityInterface from "./components/AppUtilityInterface.vue";
+import AppModal from "./components/AppModal.vue"
+import {useAppStore} from "./stores/counter"
+
+function closeModal() {
+    useAppStore().modalLevelKey = ''
+    useAppStore().modalActiveQuestionIndex = -1
+}
 
 </script>
 
@@ -43,6 +68,35 @@ import AppUtilityInterface from "@/components/AppUtilityInterface.vue";
     padding: 1rem;
     position: relative;
     height: 100%;
+}
+
+.v-app__modal {
+    z-index: 1000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.v-app__modal__close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.v-app__modal-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100%/5*3);
+    background: white;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 20px white;
 }
 
 .v-app__header-container {

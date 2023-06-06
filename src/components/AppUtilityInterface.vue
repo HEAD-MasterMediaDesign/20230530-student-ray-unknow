@@ -9,8 +9,8 @@
 
 
 <script lang="ts" setup>
-defineProps<{
-}>()
+// defineProps<{
+// }>()
 
 </script>
 

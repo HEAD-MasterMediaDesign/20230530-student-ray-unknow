@@ -2,19 +2,18 @@
     <nav class="v-app-navigation" >
         <div class="v-app-navigation__container">
         <template
-            v-for="route of listOfRoutes"
+            v-for="(level, levelKey) in listOfLevels"
         >
             <div
                 class="v-app-navigation__links-container"
                 :class="{
-                    'is-active': useRouter().currentRoute.value.name === route.name,
+                    'is-active': useRouter().currentRoute.value.name === level.titre,
                 }"
-                v-if="route.name !== 'home'"
             >
                 <router-link
                     class="v-app-navigation__links-container__link"
-                    :to="route.path"
-                >{{route.name}}</router-link>
+                    :to="`/${levelKey}`"
+                >{{level.titre}}</router-link>
             </div>
         </template>
         </div>
@@ -37,8 +36,9 @@
 // }>()
 
 import {useRouter} from "vue-router";
+import {useAppStore} from "../stores/counter"
 
-const listOfRoutes = useRouter().getRoutes()
+const listOfLevels = useAppStore().data.levels
 
 </script>
 

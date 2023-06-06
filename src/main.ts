@@ -5,21 +5,20 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
-import {data} from "./data";
+import {useAppStore} from "./stores/counter"
 
 const app = createApp(App)
 
-for (let levelsKey in data.levels) {
-    const level = data.levels[levelsKey]
-    console.log(levelsKey)
-    router.addRoute({
-        path: `/${levelsKey}`,
-        name: level.titre,
-        component: () => import('@/views/HomeView.vue'),
-    })
-}
-
 app.use(createPinia())
 app.use(router)
+
+for (let levelsKey in useAppStore().data.levels) {
+  const level = useAppStore().data.levels[levelsKey]
+  router.addRoute({
+    path: `/${levelsKey}`,
+    name: level.titre,
+    component: () => import('@/views/HomeView.vue'),
+  })
+}
 
 app.mount('#app')
