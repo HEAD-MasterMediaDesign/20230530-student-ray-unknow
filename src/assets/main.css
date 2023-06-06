@@ -30,9 +30,14 @@ body {
   color: var(--app-color-red);
 }
 
+.black{
+  color: black;
+}
+
 .footer-white{
   color: white;
 }
+
 
 #app {
   height: 100%;

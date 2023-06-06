@@ -5,8 +5,8 @@
             <div class="footer-white">A:<span class="red">Not Available</span></div>
         </div>
         <div class="v-app-footer__coll" >
-            <div class="footer-white">LMB:<span class="red">CLICK</span></div>
-            <div class="footer-white">RMB:<span class="red">INSPECT</span></div>
+            <div class="footer-white">LMB:<span class="black">CLICK</span></div>
+            <div class="footer-white">RMB:<span class="black">INSPECT</span></div>
         </div>
         <div class="v-app-footer__coll" >
             <div class="footer-white">ESC:<span class="red">Not Available</span></div>

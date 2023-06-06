@@ -1,7 +1,7 @@
 export const data: IDataType = {
     "levels": {
         ram: {
-            titre: "RAMs",
+            titre:"RAMs",
             description: "Browsing History",
             activeQuestions: [
                 {
@@ -27,7 +27,8 @@ export const data: IDataType = {
                     choicePessimist: "Baba always talked about how he could find many opportunites abroad. It would have probably made the paperwork harder for them with a kid that has no degree even.",
                     choiceOptimist: "Baba always talked about how great Geneva would be for both of us. He even recommended a university program that would be very interesting for me. The course would have started on the 21st of September",
                     index: 4
-                }
+                },
+                
             ],
             inactiveQuestions: [
                 {
