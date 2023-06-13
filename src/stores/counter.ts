@@ -169,13 +169,88 @@ export const useAppStore = defineStore('counter', () => {
         "activeQuestions": [],
         inactiveQuestions: [],
         imageQuestions: [
+          
           {
-            imageCover: 'https://images.unsplash.com/photo-1661956601031-4cf09efadfce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2352&q=80',
-            imageURL: 'https://images.unsplash.com/photo-1661956601031-4cf09efadfce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2352&q=80',
+            imageCover: '/HDD/2.jpeg',
+            imageURL: '/HDD/2.jpeg',
             text: 'Image_',
             index: 1,
             type: "questionImage",
-          }
+          },
+
+          {
+            type: 'questionVideo',
+            videoURL: "/HDD/1.mp4",
+            text: "Video_Revolution_20th_October",
+            videoCover: "/HDD/Cover_1.jpg",
+            index:0,
+          },
+
+          {
+            type: 'questionVideo',
+            videoURL: "/HDD/3.mp4",
+            text: "Video_Protest_Celebration",
+            videoCover: "/HDD/Cover_3.jpg",
+            index:2,
+          },
+
+          {
+            type: 'questionVideo',
+            videoURL: "/HDD/4.mp4",
+            text: "Video_Port_Explosion",
+            videoCover: "/HDD/Cover_4.jpg",
+            index:3,
+          },
+
+          {
+            imageCover: '/HDD/5.JPG',
+            imageURL: '/HDD/5JPG',
+            text: 'Image_Passport_Photo_Swiss_Permit',
+            index: 4,
+            type: "questionImage",
+          },
+
+          {
+            type: 'questionVideo',
+            videoURL: "/HDD/6.mp4",
+            text: "Video_Concert_Iris_Beach",
+            videoCover: "/HDD/Cover_6.jpg",
+            index:5,
+          },
+
+          {
+            imageCover: '/HDD/7.JPG',
+            imageURL: '/HDD/7JPG',
+            text: 'Image_Hezbollah_Comment_Protest',
+            index: 6,
+            type: "questionImage",
+          },
+
+          {
+            imageCover: '/HDD/8.png',
+            imageURL: '/HDD/8/png',
+            text: 'Image_Death_Certificate',
+            index: 7,
+            type: "questionImage",
+          },
+
+          {
+            type: 'questionVideo',
+            videoURL: "/HDD/9.mp4",
+            text: "Video_Militia_Intidimation",
+            videoCover: "/HDD/Cover_9.jpg",
+            index:8,
+          },
+
+          {
+            imageCover: '/HDD/10.jpeg',
+            imageURL: '/HDD/10.jpeg',
+            text: 'Image_Beach_Barghout',
+            index: 9,
+            type: "questionImage",
+          },
+
+          
         ],
         videoQuestions: [],
 
