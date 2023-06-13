@@ -19,25 +19,29 @@ export const useAppStore = defineStore('counter', () => {
             url: "https://www.aljazeera.com/where/lebanon/",
             choicePessimist: "Mama and her obsession with live news.. I can almost hear Baba telling her to stop clicking the refresh button so loud. I wonder what's the last thing they saw on this page before the explosion.",
             choiceOptimist: "",
-            index: 0
+            index: 0,
+            type: "questionActive",
           },
           {
             url: "https://www.google.com/maps/dir/Coll%C3%A8ge+Louise+Wegmann+-+Joura,+Jouret+El+Ballout,+Lebanon/Bilal,+Bayrut,+Lebanon/@33.8899742,35.5288829,13z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x151f3ebdab9f36f5:0x1e2a073a010b1b1c!2m2!1d35.6340115!2d33.899133!1m5!1m1!1s0x151f1710bc331751:0x9ed1abc893b861cf!2m2!1d35.5067369!2d33.8790787!3e0",
             choicePessimist: "This doesn't make any sense, why? Could they have headed to the airport leaving me alone? I might have become too much of a burden in these times of financial crisis...",
             choiceOptimist: "The road from home to Rafik Hariri Airport.. Were they actually thinking of going? Highly improbable. I wonder if the security camera's have any footage to confirm my reasoning.",
-            index: 2
+            index: 2,
+            type: "questionActive",
           },
           {
             url: "https://www.google.com/maps/dir/33.879082,35.506748/Beirut-Rafic+Hariri+International+Airport,+Beirut,+Lebanon/@33.8530363,35.4768458,13z/data=!4m9!4m8!1m0!1m5!1m1!1s0x151f19894e84f24b:0xe5592956cfaa421c!2m2!1d35.493178!2d33.8256459!3e0",
             choicePessimist: "I see now.. They were checking the time from school to home to make sure we won't run into each other before takeoff.. I had a feeling that I shouldn't have stayed longer in school to talk to Samir that day..",
             choiceOptimist: "The road from school to home. It usually takes between 19 to 23 minutes. But most importantly they were worried that I might pass by the Port route where the fires were happening.",
-            index: 3
+            index: 3,
+            type: "questionActive",
           },
           {
             url: " https://www.ge.ch/demander-permis-travail-employeur-suisse",
             choicePessimist: "Baba always talked about how he could find many opportunites abroad. It would have probably made the paperwork harder for them with a kid that has no degree even.",
             choiceOptimist: "",
-            index: 4
+            index: 4,
+            type: "questionActive",
           },
 
         ],
@@ -48,6 +52,7 @@ export const useAppStore = defineStore('counter', () => {
             pageOfNextLeve: "GPU",
             index: 1,
             isResolved: false,
+            type: "questionUnactive",
           },
           {
             url: "https://www.acouplecooks.com/italian-pizza-recipe/ ",
@@ -55,8 +60,11 @@ export const useAppStore = defineStore('counter', () => {
             pageOfNextLeve: "GPU",
             index: 5,
             isResolved: false,
+            type: "questionUnactive",
           }
-        ]
+        ],
+        imageQuestions: [],
+        videoQuestions: [],
       },
       gpu: {
         questionResolvedCounter: 0,
@@ -67,7 +75,8 @@ export const useAppStore = defineStore('counter', () => {
             url: '',
             choicePessimist: "The cameras are frozen.. They probably froze them by tampering with the power Supply... Could they have done all that to avoid me the pain of looking for them in vain?",
             choiceOptimist: "",
-            index: 0
+            index: 0,
+            type: "questionActive",
           },
         ],
         inactiveQuestions: [
@@ -77,8 +86,11 @@ export const useAppStore = defineStore('counter', () => {
             description: '',
             pageOfNextLeve: "SUPPLY",
             isResolved: false,
+            type: "questionUnactive",
           }
-        ]
+        ],
+        imageQuestions: [],
+        videoQuestions: [],
       },
       supply: {
         questionResolvedCounter: 0,
@@ -90,9 +102,12 @@ export const useAppStore = defineStore('counter', () => {
             choiceOptimist: "I can see a repeating pattern made out of 3 elements. Something is indeed repeating infinetly. Could that be leading to a frame freeze? The CPU's capacitors could be damaged . Got to investigate",
             index: 0,
             url: '',  //todo ??
+            type: "questionActive",
           },
         ],
         inactiveQuestions: [], //todo pas de questions
+        imageQuestions: [],
+        videoQuestions: [],
       },
       cpu: {
         questionResolvedCounter: 0,
@@ -103,19 +118,22 @@ export const useAppStore = defineStore('counter', () => {
             url: "Instruction sent to Network Interface Card failed",
             choicePessimist: "As always, after national events the government shuts down all telecommunications. It is so obvious, every time. Can't believe some people think its a conspiracy theory.",
             choiceOptimist: "Access to all telecommunications are down again. I'm almost sure this is due to heavy load on the servers after national events. Everyone is calling their loved ones to see if they're alive and well.",
-            index: 0
+            index: 0,
+            type:"questionActive",
           },
           {
             url: "Keyboard unplugged unexpetedly",
             choicePessimist: "Another attempts to spare me the pain of looking for them hopelessly. These can't all be coincidences...",
             choiceOptimist: "This must be after the explosion. The blast would have disconnected the keyboard from the motherboard. 2750 Tonnes of ammonium nitrate could easily do that.",
-            index: 1
+            index: 1,
+            type:"questionActive",
           },
           {
             url: " Fetching instruction: CAM BDROOM DISPLAY, CAM KTCHN DISPLAY Decoding Instruction: Failed.",
             choicePessimist: "That explains the GPU thing. No wonder it's not working if they disabled it.",
             choiceOptimist: "The decoding is failing so the execution is not taking place. Force execution",
-            index: 4
+            index: 4,
+            type:"questionActive",
           }
         ],
         inactiveQuestions: [
@@ -126,6 +144,7 @@ export const useAppStore = defineStore('counter', () => {
             index: 2,
             pageOfNextLeve: "HDD",
             isResolved: false,
+            type:"questionUnactive",
           },
           {
             url: '', //todo pas d'url??
@@ -137,24 +156,28 @@ export const useAppStore = defineStore('counter', () => {
             pageOfNextLeve: "HDD",
             index: 3,
             isResolved: false,
+            type: "questionUnactive",
           },
         ],
+        imageQuestions: [],
+        videoQuestions: [],
       },
       hdd: {
         questionResolvedCounter: 0,
         "titre": "HDD",
         "description": "Images-Videos-Paperworl",
-        "activeQuestions": [
+        "activeQuestions": [],
+        inactiveQuestions: [],
+        imageQuestions: [
           {
-            url: "",
-            choiceOptimist: "",
-            choicePessimist: "",
-            // "Video 1":"path to image 1",  //todo ajout de video?
-            // "description":"I remember this etc ..", //todo: comprend pas
-            "index": 0,
-          },
+            imageCover: 'https://images.unsplash.com/photo-1661956601031-4cf09efadfce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2352&q=80',
+            imageURL: 'https://images.unsplash.com/photo-1661956601031-4cf09efadfce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2352&q=80',
+            text: 'Image_',
+            index: 1,
+            type: "questionImage",
+          }
         ],
-        inactiveQuestions: [] //todo toujours un tableau, vide si rien
+        videoQuestions: [],
 
         //todo ajouter une option content
         //
