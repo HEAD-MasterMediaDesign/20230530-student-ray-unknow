@@ -180,15 +180,15 @@ export const useAppStore = defineStore('counter', () => {
 
           {
             imageCover: '/HDD/5.JPG',
-            imageURL: '/HDD/5JPG',
+            imageURL: '/HDD/5.JPG',
             text: 'Image_Passport_Photo_Swiss_Permit',
             index: 4,
             type: "questionImage",
           },
 
           {
-            imageCover: '/HDD/7.JPG',
-            imageURL: '/HDD/7JPG',
+            imageCover: '/HDD/7.jpg',
+            imageURL: '/HDD/7.jpg',
             text: 'Image_Hezbollah_Comment_Protest',
             index: 6,
             type: "questionImage",
@@ -196,7 +196,7 @@ export const useAppStore = defineStore('counter', () => {
 
           {
             imageCover: '/HDD/8.png',
-            imageURL: '/HDD/8/png',
+            imageURL: '/HDD/8.png',
             text: 'Image_Death_Certificate',
             index: 7,
             type: "questionImage",
