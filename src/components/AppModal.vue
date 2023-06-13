@@ -45,9 +45,14 @@ import type {IDataTypeQuestionActive} from "@/data"
 
 const getChoicesByIndex = computed((): IDataTypeQuestionActive => {
 
-    const arrayOfActiveQuestions = useAppStore().data.levels[useAppStore().modalLevelKey].activeQuestions
+    const arrayOfQuestions = [
+        ...useAppStore().data.levels[useAppStore().modalLevelKey].activeQuestions,
+        ...useAppStore().data.levels[useAppStore().modalLevelKey].inactiveQuestions,
+        ...useAppStore().data.levels[useAppStore().modalLevelKey].imageQuestions,
+        ...useAppStore().data.levels[useAppStore().modalLevelKey].videoQuestions,
+    ]
 
-    return arrayOfActiveQuestions.find(value => {
+    return arrayOfQuestions.find(value => {
         return value.index === useAppStore().modalActiveQuestionIndex
     })
 })

@@ -53,3 +53,10 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+button {
+  all: unset;
+  background: white;
+  padding: 1rem;
+  cursor: pointer;
+}

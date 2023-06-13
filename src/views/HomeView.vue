@@ -31,6 +31,7 @@
                 <div
                     class="v-home-view__questions-container__question v-home-view__questions__question--image"
                     v-if="question.type === 'questionImage'"
+                    @click="openImageWindow(question)"
                 >
                     <img
                         class="v-home-view__questions__question__cover"
@@ -42,11 +43,59 @@
                     >
                         {{question.text}}
                     </div>
+
+                </div>
+
+                <div
+                    class="v-home-view__questions-container__question v-home-view__questions__question--image"
+                    v-if="question.type === 'questionVideo'"
+                >
+                    <img
+                        class="v-home-view__questions__question__cover"
+                        alt=""
+                        :src="question.videoCover"
+                    >
+                    <div
+                        class="v-home-view__questions__question__text"
+                    >
+                        {{question.text}}
+                    </div>
                 </div>
 
             </template>
         </div>
 
+
+        <div
+            class="v-home-view__modal v-home-view__modal--image"
+            v-if="imageModalData"
+        >
+            <div
+                class="v-home-view__modal__cache"
+                @click="clearModalData()"
+            ></div>
+            <div
+                class="v-home-view__modal__container"
+            >
+                <img
+                    alt=""
+                    :src="imageModalData.imageURL"
+                />
+
+                <button
+                    v-if="imageModalData.choiceOptimist && imageModalData.choicePessimist"
+                    @click="openChoiceModal($event, imageModalData.index)"
+                >
+                    open choice
+                </button>
+                <button
+                    v-else
+                    @click="clearModalData()"
+                >
+                    close
+                </button>
+            </div>
+        </div>
 
     </section>
 </template>
@@ -68,9 +117,27 @@ import type {
 } from "../data";
 import router from "../router";
 import {useAppStore} from "../stores/counter"
-import {computed, ComputedRef} from "vue";
+import {computed, ComputedRef, ref} from "vue";
 
 const levelData: IDataTypeLevel = useAppStore().data.levels[router.currentRoute.value.path.substring(1)]
+
+const imageModalData = ref(null as null | IDataTypeQuestionImage)
+const videoModalData = ref(null as null | IDataTypeQuestionVideo)
+
+function clearModalData() {
+    imageModalData.value = null
+    videoModalData.value = null
+}
+
+function openChoiceModal(e: MouseEvent, activeQuestionIndex: number) {
+    linkOnContextMenu(e, activeQuestionIndex)
+    // clearModalData()
+}
+
+function openImageWindow(question: IDataTypeQuestionImage) {
+    clearModalData()
+    imageModalData.value = question
+}
 
 function linkOnClick(e: MouseEvent, url: string) {
     e.preventDefault()
@@ -155,11 +222,53 @@ const sortedQuestions: ComputedRef<(IDataTypeQuestionActive | IDataTypeQuestionU
     .v-home-view__questions__question__cover {
         display: block;
         width: 100%;
-        height: auto;
+        height: 80%;
+        object-fit: cover;
     }
 
     .v-home-view__questions__question__text {
         padding-top: 1rem;
     }
 }
+
+.v-home-view__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    .v-home-view__modal__cache {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        background: rgba(0, 0, 0, .5);
+        cursor: pointer;
+    }
+
+
+    .v-home-view__modal__container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        > img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+}
+
 </style>
