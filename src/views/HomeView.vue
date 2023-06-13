@@ -186,12 +186,15 @@ const sortedQuestions: ComputedRef<(IDataTypeQuestionActive | IDataTypeQuestionU
 .v-home-view__questions-container {
     display: flex;
     flex-wrap: wrap;
+    column-gap: 2rem;
+
 }
 
 .v-home-view__questions-container__question {
     cursor: pointer;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    word-wrap: break-word;
 
     &.v-home-view__questions-container__question--active {
         width: 100%;
@@ -215,19 +218,20 @@ const sortedQuestions: ComputedRef<(IDataTypeQuestionActive | IDataTypeQuestionU
     }
 
     &.v-home-view__questions__question--image {
-        width: 20%;
+        width: calc(20% - 1.6rem);
         box-sizing: border-box;
     }
 
     .v-home-view__questions__question__cover {
         display: block;
         width: 100%;
-        height: 80%;
+        height: 20vh;
         object-fit: cover;
     }
 
     .v-home-view__questions__question__text {
         padding-top: 1rem;
+        word-wrap: break-word;
     }
 }
 
@@ -255,6 +259,9 @@ const sortedQuestions: ComputedRef<(IDataTypeQuestionActive | IDataTypeQuestionU
         position: absolute;
         top: 50%;
         left: 50%;
+        width: 75%;
+        height: 75%;
+        //background: black;
         z-index: 1;
         transform: translate(-50%, -50%);
         display: flex;
@@ -266,6 +273,12 @@ const sortedQuestions: ComputedRef<(IDataTypeQuestionActive | IDataTypeQuestionU
             width: 100%;
             height: 100%;
             object-fit: contain;
+        }
+
+        > button {
+            position: absolute;
+            bottom: 0;
+            right: 0;
         }
     }
 
