@@ -49,6 +49,7 @@
                 <div
                     class="v-home-view__questions-container__question v-home-view__questions__question--image"
                     v-if="question.type === 'questionVideo'"
+                    @click="openVideoWindow(question)"
                 >
                     <img
                         class="v-home-view__questions__question__cover"
@@ -97,6 +98,31 @@
             </div>
         </div>
 
+        <div
+            class="v-home-view__modal v-home-view__modal--video"
+            v-if="videoModalData"
+        >
+            <div
+                class="v-home-view__modal__cache"
+                @click="clearModalData()"
+            ></div>
+            <div
+                class="v-home-view__modal__container"
+            >
+                <video
+                    :src="videoModalData.videoURL"
+                    @click="toggleVideo($event)"
+                />
+
+                <button
+                    @click="clearModalData()"
+                >
+                    close
+                </button>
+            </div>
+        </div>
+
+
     </section>
 </template>
 
@@ -124,6 +150,14 @@ const levelData: IDataTypeLevel = useAppStore().data.levels[router.currentRoute.
 const imageModalData = ref(null as null | IDataTypeQuestionImage)
 const videoModalData = ref(null as null | IDataTypeQuestionVideo)
 
+function toggleVideo(e: MouseEvent) {
+    if( ! ( e.target instanceof HTMLVideoElement) ) return
+
+    if(e.target.paused) e.target.play()
+    else e.target.pause()
+
+}
+
 function clearModalData() {
     imageModalData.value = null
     videoModalData.value = null
@@ -137,6 +171,11 @@ function openChoiceModal(e: MouseEvent, activeQuestionIndex: number) {
 function openImageWindow(question: IDataTypeQuestionImage) {
     clearModalData()
     imageModalData.value = question
+}
+
+function openVideoWindow(question: IDataTypeQuestionVideo) {
+    clearModalData()
+    videoModalData.value = question
 }
 
 function linkOnClick(e: MouseEvent, url: string) {
@@ -267,6 +306,14 @@ const sortedQuestions: ComputedRef<(IDataTypeQuestionActive | IDataTypeQuestionU
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+
+        > video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            cursor: pointer;
+        }
 
         > img {
             display: block;
