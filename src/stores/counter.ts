@@ -169,7 +169,7 @@ export const useAppStore = defineStore('counter', () => {
         "activeQuestions": [],
         inactiveQuestions: [],
         imageQuestions: [
-          
+
           {
             imageCover: '/HDD/2.jpeg',
             imageURL: '/HDD/2.jpeg',
@@ -179,43 +179,11 @@ export const useAppStore = defineStore('counter', () => {
           },
 
           {
-            type: 'questionVideo',
-            videoURL: "/HDD/1.mp4",
-            text: "Video_Revolution_20th_October",
-            videoCover: "/HDD/Cover_1.jpg",
-            index:0,
-          },
-
-          {
-            type: 'questionVideo',
-            videoURL: "/HDD/3.mp4",
-            text: "Video_Protest_Celebration",
-            videoCover: "/HDD/Cover_3.jpg",
-            index:2,
-          },
-
-          {
-            type: 'questionVideo',
-            videoURL: "/HDD/4.mp4",
-            text: "Video_Port_Explosion",
-            videoCover: "/HDD/Cover_4.jpg",
-            index:3,
-          },
-
-          {
             imageCover: '/HDD/5.JPG',
             imageURL: '/HDD/5JPG',
             text: 'Image_Passport_Photo_Swiss_Permit',
             index: 4,
             type: "questionImage",
-          },
-
-          {
-            type: 'questionVideo',
-            videoURL: "/HDD/6.mp4",
-            text: "Video_Concert_Iris_Beach",
-            videoCover: "/HDD/Cover_6.jpg",
-            index:5,
           },
 
           {
@@ -233,15 +201,6 @@ export const useAppStore = defineStore('counter', () => {
             index: 7,
             type: "questionImage",
           },
-
-          {
-            type: 'questionVideo',
-            videoURL: "/HDD/9.mp4",
-            text: "Video_Militia_Intidimation",
-            videoCover: "/HDD/Cover_9.jpg",
-            index:8,
-          },
-
           {
             imageCover: '/HDD/10.jpeg',
             imageURL: '/HDD/10.jpeg',
@@ -250,29 +209,45 @@ export const useAppStore = defineStore('counter', () => {
             type: "questionImage",
           },
 
-          
-        ],
-        videoQuestions: [],
 
-        //todo ajouter une option content
-        //
-        // content: [
-        //     {
-        //         "Image 2":"path to image 2",
-        //         "description":"",
-        //         "index": 1,
-        //     },
-        //     {
-        //         "Video 3":"path to video 3",
-        //         "description":"I remember this etc ..",
-        //         "index": 2,
-        //     },
-        //     {
-        //         "Video 4":"path to video 4",
-        //         "description":"I remember this etc ..",
-        //         "index": 3,
-        //     },
-        // ]
+        ],
+        videoQuestions: [
+          {
+            type: 'questionVideo',
+            videoURL: "/HDD/1.mp4",
+            text: "Video_Revolution_20th_October",
+            videoCover: "/HDD/Cover_1.jpg",
+            index:0,
+          },
+          {
+            type: 'questionVideo',
+            videoURL: "/HDD/3.mp4",
+            text: "Video_Protest_Celebration",
+            videoCover: "/HDD/Cover_3.jpg",
+            index:2,
+          },
+          {
+            type: 'questionVideo',
+            videoURL: "/HDD/4.mp4",
+            text: "Video_Port_Explosion",
+            videoCover: "/HDD/Cover_4.jpg",
+            index:3,
+          },
+          {
+            type: 'questionVideo',
+            videoURL: "/HDD/6.mp4",
+            text: "Video_Concert_Iris_Beach",
+            videoCover: "/HDD/Cover_6.jpg",
+            index:5,
+          },
+          {
+            type: 'questionVideo',
+            videoURL: "/HDD/9.mp4",
+            text: "Video_Militia_Intidimation",
+            videoCover: "/HDD/Cover_9.jpg",
+            index:8,
+          },
+        ],
       }
     }
   })
